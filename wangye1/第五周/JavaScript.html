@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let a = 10
+        const title = '不变的值'
+        alert(title)
+        let b = '10'
+        console.log(a == b)
+        console.log(a === b)
+        console.log(a + b)
+        console.log(a + Number(b))
+        let score = 85
+        if(score >= 70){
+            console.log('良好')
+        } else {
+            console.log('一般')
+        }
+        for(let i = 1; i <= 5; i++){
+            console.log(i + ' 号商品')
+        }
+        let drink = 8
+        while(drink > 0){
+            console.log(drink)
+            drink = drink - 1
+        }
+       function sayHello(){
+    console.log('这是一个打招呼的方式')   
+    }
+    sayHello()
+    function sayHello2(message){
+        console.log(message)
+    }
+    sayHello2('这是带参数的打招呼函数')
+    function sayHello3(message){
+        console.log(message)
+        return message + '这是返回值'
+    }
+    result = sayHello3('你好')
+    console.log(result)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
