@@ -9,8 +9,9 @@ export default function Home() {
     </h2>
     h3
     <p>
-      这是我的第一个页面
+      这是我的第一个页面.
     </p>
     </div>
+    
   );
 }
