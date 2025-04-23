@@ -5,7 +5,7 @@ export default function Home() {
     <div >
     <h1>自定义内容</h1>  
     <h2>
-      第一天
+      第一天。。
     </h2>
     h3
     <p>
