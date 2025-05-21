@@ -1,26 +1,33 @@
+/* 全局样式文件：定义项目基础样式、主题变量和全局字体 */
+
+/* 导入 Tailwind CSS 核心样式（必须放在最顶部，确保 Tailwind 实用类生效） */
 @import "tailwindcss";
 
+/* 定义全局 CSS 变量（浅色主题默认值） */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #ffffff; /* 默认背景色（白色） */
+  --foreground: #171717; /* 默认前景色（深灰色） */
 }
 
+/* 主题配置（假设用于适配设计系统主题变量，将自定义变量映射到主题相关变量） */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background); /* 主题背景色：使用全局定义的 --background */
+  --color-foreground: var(--foreground); /* 主题前景色：使用全局定义的 --foreground */
+  --font-sans: var(--font-geist-sans); /* 无衬线字体：使用预定义的 Geist Sans 字体（需在其他文件中定义） */
+  --font-mono: var(--font-geist-mono); /* 等宽字体：使用预定义的 Geist Mono 字体（需在其他文件中定义） */
 }
 
+/* 媒体查询：检测用户系统的深色模式偏好，覆盖全局变量实现深色主题 */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a0a0a; /* 深色模式背景色（深黑色） */
+    --foreground: #ededed; /* 深色模式前景色（浅灰色） */
   }
 }
 
+/* 全局 body 样式：应用背景色、前景色和默认字体 */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background); /* 使用全局变量设置背景色（自动适配深浅主题） */
+  color: var(--foreground); /* 使用全局变量设置文字颜色（自动适配深浅主题） */
+  font-family: Arial, Helvetica, sans-serif; /* 默认无衬线字体（备用字体族） */
 }
