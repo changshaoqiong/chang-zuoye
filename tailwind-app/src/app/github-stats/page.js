@@ -110,5 +110,6 @@ export default async function GitHubStatsPage() {
                 <p>未能获取到提交记录，或仓库中没有提交。</p>
             )}
         </div>
+        
     );
 }
