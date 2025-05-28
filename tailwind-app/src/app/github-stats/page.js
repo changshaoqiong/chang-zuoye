@@ -71,13 +71,13 @@ export default async function GitHubStatsPage() {
                 <ul className="space-y-4">
                     {/* 遍历提交数组生成列表项（每个提交对应一个列表项） */}
                     {commits.map((commit) => (
-                        <li 
+                        <li
                             key={commit.sha} // 唯一标识（提交的 SHA 值，确保 React 列表渲染性能）
                             className="p-4 border rounded-lg shadow hover:shadow-md transition-shadow" // 列表项样式（边框、阴影、悬停效果）
                         >
                             <div className="font-semibold text-lg text-blue-600">
                                 {/* 提交信息链接：跳转到提交详情页（动态路由 /github-stats/commits/[commitId]） */}
-                                <Link 
+                                <Link
                                     href={`/github-stats/commits/${commit.sha}`} // 动态路由路径（commit.sha 为提交的唯一标识）
                                     className="hover:underline" // 悬停下划线交互效果
                                 >
@@ -96,8 +96,8 @@ export default async function GitHubStatsPage() {
                             </p>
 
                             {/* 查看详情链接：跳转到当前提交的详情页 */}
-                            <Link 
-                                href={`/github-stats/commits/${commit.sha}`} 
+                            <Link
+                                href={`/github-stats/commits/${commit.sha}`}
                                 className="text-blue-500 hover:underline text-sm mt-2 inline-block"
                             >
                                 查看详情 &rarr;
@@ -110,6 +110,6 @@ export default async function GitHubStatsPage() {
                 <p>未能获取到提交记录，或仓库中没有提交。</p>
             )}
         </div>
-        
+
     );
 }

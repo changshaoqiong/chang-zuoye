@@ -4,7 +4,7 @@
     "title": "HTML 基础结构练习",
     "description": "学习并实践HTML5的基本文档结构，包括头部、主体和常用标签。",
     "imageUrl": "https://images.unsplash.com/photo-1600695268275-1a6468700bd5",
-    "link": "data/exercises/html-basics",
+    "link": "/exercises/html-basics",
     "tags": [
       "HTML",
       "基础"
@@ -48,25 +48,13 @@
   },
   {
     "id": 5,
-    "title": " Next.js 核心概念",
-    "description": "学习Next.js框架的核心概念，组件、jsx、props。",
-    "imageUrl": "https://source.unsplash.com/random/600x400?react,components",
+    "title": "Next.js 核心概念",
+    "description": "学习Next.js框架的核心概念：组件、jsx、props",
+    "imageUrl": "https://www.bing.com/th/id/OIP._f7r2jhr7HHcNDqJL1652wHaEo?w=268&h=180&c=7&r=0&o=5&pid=1.7s",
     "tags": [
       "React",
       "组件",
       "SPA"
     ]
-  },
-  {
-    "id": 6,
-    "title": " Next.js 核心概念",
-    "description": "学习Next.js框架的核心概念:state、fetch。",
-    "imageUrl": "https://source.unsplash.com/random/600x400?react,components",
-    "tags": [
-      "React",
-      "组件",
-      "SPA"
-    ]
-    
   }
 ]

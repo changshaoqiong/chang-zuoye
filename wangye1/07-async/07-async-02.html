@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript异步编程练习</title>
     <style>
@@ -11,25 +12,32 @@
             margin: 0 auto;
             padding: 20px;
         }
+
         h1 {
             color: #333;
             text-align: center;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
         }
-        th, td {
+
+        th,
+        td {
             padding: 8px;
             text-align: left;
         }
+
         th {
             background-color: #f2f2f2;
         }
+
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
+
         button {
             padding: 8px 16px;
             margin: 10px 5px;
@@ -39,24 +47,27 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
         button:hover {
             background-color: #45a049;
         }
+
         #demo {
             margin-top: 20px;
             padding: 15px;
             border: 1px solid #ddd;
             border-radius: 5px;
             /* 添加以下样式将内容左对齐 */
-            text-align: left; 
+            text-align: left;
             margin-right: auto;
             margin-left: 0;
         }
     </style>
 </head>
+
 <body>
     <h1>JavaScript 异步编程练习</h1>
-    
+
     <div>
         <button onclick="displayRandomInt()">生成随机数</button>
         <button onclick="fetchAllPushDates('changshaoqiong', 'chang-zuoye')">获取GitHub提交记录</button>
@@ -66,7 +77,7 @@
     </div>
 
     <div id="demo"></div>
-    
+
     <script>
         // 生成指定范围内的随机整数
         function getRandomInt(min, max) {
@@ -77,7 +88,7 @@
                 }, 500); // 模拟延迟
             });
         }
-        
+
         async function displayRandomInt() {
             document.getElementById('demo').textContent = '加载中...';
             const randomInt = await getRandomInt(1, 100);
@@ -125,25 +136,31 @@
                 const commits = await response.json();
                 const commitDates = commits.map(commit => new Date(commit.commit.author.date));
                 // 固定第一周起始时间为 2025 年 3 月 3 日
-                const firstWeekStart = new Date('2025-03-03'); 
+                const firstWeekStart = new Date('2025-03-03');
                 // 设置截止日期为 2025 年 7 月 23日
-                const endDate = new Date('2025-07-23'); 
+                const endDate = new Date('2025-07-23');
                 // 计算总周数
                 const totalWeeks = Math.floor((endDate - firstWeekStart) / (7 * 24 * 60 * 60 * 1000)) + 1;
-                const weeklyCommits = Array(totalWeeks).fill(false);
+                // 修改：将每周数据存储为提交时间数组（原布尔值改为数组）
+                const weeklyCommits = Array(totalWeeks).fill().map(() => []); // 初始化为空数组
 
                 commitDates.forEach(date => {
                     if (date >= firstWeekStart && date <= endDate) {
                         const weekNumber = Math.floor((date - firstWeekStart) / (7 * 24 * 60 * 60 * 1000));
                         if (weekNumber >= 0 && weekNumber < totalWeeks) {
-                            weeklyCommits[weekNumber] = true;
+                            // 修改：将日期转为本地化字符串并存入对应周的数组
+                            weeklyCommits[weekNumber].push(date.toLocaleString());
                         }
                     }
                 });
 
-                let tableHTML = '<table border="1"><tr><th>周数</th><th>是否有提交</th></tr>';
-                weeklyCommits.forEach((hasCommit, index) => {
-                    tableHTML += `<tr><td>第 ${index + 1} 周</td><td>${hasCommit ? '有' : '无'}</td></tr>`;
+                // 修改：表格新增“提交时间”列
+                let tableHTML = '<table border="1"><tr><th>周数</th><th>是否有提交</th><th>提交时间</th></tr>';
+                weeklyCommits.forEach((commits, index) => {
+                    const hasCommit = commits.length > 0;
+                    // 提交时间用换行分隔显示（HTML 中用 <br> 标签换行）
+                    const commitTimes = hasCommit ? commits.join('<br>') : '无';
+                    tableHTML += `<tr><td>第 ${index + 1} 周</td><td>${hasCommit ? '有' : '无'}</td><td>${commitTimes}</td></tr>`;
                 });
                 tableHTML += '</table>';
                 document.getElementById('demo').innerHTML = tableHTML;
@@ -154,4 +171,5 @@
         }
     </script>
 </body>
+
 </html>
