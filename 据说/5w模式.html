@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>传播学5W模式理论解析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CBCB',
+                        accent: '#FF7D00',
+                        dark: '#1D2129',
+                        light: '#F2F3F5'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                },
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(22, 93, 255, 0.1), 0 10px 10px -5px rgba(22, 93, 255, 0.04);
+      }
+      .timeline-item {
+        position: relative;
+        padding-left: 2rem;
+        margin-bottom: 2rem;
+      }
+      .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.5rem;
+        width: 0.75rem;
+        height: 0.75rem;
+        border-radius: 50%;
+        background-color: #165DFF;
+      }
+      .timeline-item::after {
+        content: '';
+        position: absolute;
+        left: 0.375rem;
+        top: 1.5rem;
+        bottom: -2rem;
+        width: 0.0625rem;
+        background-color: #E5E7EB;
+      }
+      .timeline-item:last-child::after {
+        display: none;
+      }
+    }
+    @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fade-in-up {
+    animation: fade-in-up 0.5s ease-out forwards;
+  }
+  .duration-1000 {
+    animation-duration: 1s;
+  }
+</style>
+</head>
+
+<body class="font-inter bg-gray-50 text-dark">
+    <!-- 导航栏 -->
+    <header class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                            <i class="fa-solid fa-comments text-white text-xl"></i>
+                        </div>
+                        <span class="ml-3 text-xl font-semibold text-dark">5W模式</span>
+                    </a>
+                    <nav class="hidden md:ml-10 md:flex space-x-8">
+                        <a href="#overview"
+                            class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">概述</a>
+                        <a href="#model"
+                            class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">模式解析</a>
+                        <a href="#development"
+                            class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">理论发展</a>
+                        <a href="#evaluation"
+                            class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">评价与影响</a>
+                    </nav>
+                </div>
+                <div class="flex items-center">
+                    <button class="md:hidden text-gray-700 hover:text-primary" id="mobile-menu-button">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div class="md:hidden hidden bg-white border-t" id="mobile-menu">
+            <div class="container mx-auto px-4 py-3 space-y-1">
+                <a href="#overview"
+                    class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary">概述</a>
+                <a href="#model" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary">模式解析</a>
+                <a href="#development"
+                    class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary">理论发展</a>
+                <a href="#evaluation"
+                    class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary">评价与影响</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="w-full md:w-1/2 mb-8 md:mb-0">
+                    <h1
+                        class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-dark animate-fade-in-up duration-1000">
+                        传播学<span class="text-primary">5W模式</span>
+                    </h1>
+                    <p class="mt-4 text-lg text-gray-600 max-w-xl animate-fade-in-up duration-1000"
+                        style="animation-delay: 0.3s;">
+                        拉斯韦尔5W模式是传播学史上第一个传播过程模式，首次将传播活动解释为由传播者、传播内容、传播渠道、受传者和传播效果五个环节构成的过程。
+                    </p>
+                    <div class="mt-8 flex space-x-4">
+                        <a href="#model"
+                            class="px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+                            深入了解
+                        </a>
+                        <a href="#development"
+                            class="px-6 py-3 bg-white hover:bg-gray-50 text-primary border border-primary rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                            理论发展
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80">
+                        <div class="absolute inset-0 bg-primary/10 rounded-full animate-pulse"></div>
+                        <div class="absolute inset-4 bg-primary/20 rounded-full animate-pulse"
+                            style="animation-delay: 0.5s"></div>
+                        <div class="absolute inset-8 bg-primary/30 rounded-full animate-pulse"
+                            style="animation-delay: 1s"></div>
+                        <div class="absolute inset-12 bg-primary/40 rounded-full animate-pulse"
+                            style="animation-delay: 1.5s"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fa-solid fa-comments text-primary text-8xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 概述部分 -->
+    <section id="overview" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark">模式概述</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="bg-light rounded-2xl p-6 md:p-8 shadow-md">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                        <h3 class="text-2xl font-semibold text-dark mb-4 animate-fade-in-up duration-1000"
+                            style="animation-delay: 0.5s;">什么是5W模式？</h3>
+                        <p class="text-gray-700 mb-4">
+                            5W模式由美国政治学家、传播学家哈罗德·拉斯韦尔（Harold Lasswell）于1948年在《传播在社会中的结构与功能》一文中提出。
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            这一模式以其简洁明了的特点，成为传播学研究的经典理论框架，为后续传播理论的发展奠定了基础。
+                        </p>
+                        <p class="text-gray-700">
+                            5W模式的五个要素分别对应传播过程中的五个基本问题：谁(Who)、说了什么(Says What)、通过什么渠道(In Which Channel)、对谁说(To
+                            Whom)、产生了什么效果(With What Effect)。
+                        </p>
+                    </div>
+                    <div class="w-full md:w-1/2 md:pl-8">
+                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <div class="flex items-center justify-center mb-4">
+                                <div class="relative w-64 h-64">
+                                    <svg viewBox="0 0 100 100" class="w-full h-full">
+                                        <circle cx="50" cy="50" r="45" fill="#165DFF" fill-opacity="0.1" />
+                                        <text x="50" y="50" text-anchor="middle" dominant-baseline="middle"
+                                            font-size="16" font-weight="bold" fill="#165DFF">5W</text>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2 text-center">
+                                <div class="bg-primary/5 p-3 rounded-lg">
+                                    <span class="text-primary font-semibold">Who</span>
+                                    <p class="text-sm text-gray-600">传播者</p>
+                                </div>
+                                <div class="bg-primary/5 p-3 rounded-lg">
+                                    <span class="text-primary font-semibold">Says What</span>
+                                    <p class="text-sm text-gray-600">信息</p>
+                                </div>
+                                <div class="bg-primary/5 p-3 rounded-lg">
+                                    <span class="text-primary font-semibold">In Which Channel</span>
+                                    <p class="text-sm text-gray-600">媒介</p>
+                                </div>
+                                <div class="bg-primary/5 p-3 rounded-lg">
+                                    <span class="text-primary font-semibold">To Whom</span>
+                                    <p class="text-sm text-gray-600">受众</p>
+                                </div>
+                                <div class="bg-primary/5 p-3 rounded-lg col-span-2">
+                                    <span class="text-primary font-semibold">With What Effect</span>
+                                    <p class="text-sm text-gray-600">效果</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 模式解析部分 -->
+    <section id="model" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark">模式解析</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Who -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="h-4 bg-primary"></div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-user text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-2 animate-fade-in-up duration-1000"
+                            style="animation-delay: 0.7s;">Who（传播者）</h3>
+                        <p class="text-gray-600 mb-4">
+                            传播者（Who）是拉斯韦尔1948年提出的5W模式首个要素，被称为"控制分析"核心对象。早期研究聚焦大众传媒（如报纸、广播）的信息垄断，当代扩展至个人（KOL）、机构（企业官微）等多元主体。<br><br>
+                            经典案例：《纽约时报》通过严格的"把关人"机制（怀特1950年提出）筛选新闻，其"所有适合刊登的新闻"（All the News That's Fit to
+                            Print）理念使其可信度指数达89%（2023年皮尤研究中心数据）。<br><br>
+                            数字时代特征：@人民日报 微博通过"主流价值+网言网语"互动（2023年粉丝量1.8亿），实现从"信息发布者"到"价值引领者"的转型。
+                        </p>
+                        <div class="mt-4">
+                            <h4 class="font-medium text-dark mb-2">相关研究领域</h4>
+                            <ul class="text-gray-600 space-y-1">
+                                <li class="flex items-center">
+                                    <i class="fa-solid fa-circle text-xs text-primary mr-2"></i>
+                                    信源可信度研究
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fa-solid fa-circle text-xs text-primary mr-2"></i>
+                                    把关人理论
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fa-solid fa-circle text-xs text-primary mr-2"></i>
+                                    媒介组织研究
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Says What -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="h-4 bg-primary"></div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-comment text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-2">Says What（信息）</h3>
+                        <p class="text-gray-600 mb-4">
+                            信息（Says What）遵循霍尔（Stuart
+                            Hall）1973年"编码/解码"理论：传播者编码（赋予意义）→媒介传递→受传者解码（解读意义），可能产生偏好性/协商性/对抗性三种结果。<br><br>
+                            权威案例：2022北京冬奥会开幕式"微火"主火炬，通过非语言符号传递环保理念，全球媒体解码后92%关联"绿色奥运"（偏好性解码，清华大学传播学院2023年研究）。<br><br>
+                            多模态优势：文字+图像+音频组合信息的记忆度比单一文字高37%（中国传媒大学2021年实验数据）。
+                        </p>
+                        <div class="mt-4">
+                            <h4 class="font-medium text-dark mb-2">相关研究领域</h4>
+                            <ul class="text-gray-600 space-y-1">
+                                <li class="flex items-center">
+                                    <i class="fa-solid fa-circle text-xs text-primary mr-2"></i>
+                                    内容分析
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fa-solid fa-circle text-xs text-primary mr-2"></i>
+                                    传播符号学
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fa-solid fa-circle text-xs text-primary mr-2"></i>
+                                    信息建构理论
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- In Which Channel -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="h-4 bg-primary"></div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-radio text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-2">In Which Channel（媒介）</h3>
+                        <p class="text-gray-600 mb-4">
+                            媒介（In Which
+                            Channel）符合麦克卢汉"媒介即讯息"（1964）理论，其形态本身塑造社会结构。莱文森"补救媒介理论"指出新媒介会弥补旧媒介缺陷（如短视频弥补图文动态性不足）。<br><br>
+                            最新数据：中国互联网络信息中心（CNNIC）2023年报告显示，我国网民日均使用手机6.8小时，其中短视频占比29.6%（1.9小时），成最主流信息媒介。<br><br>
+                            选择策略：深度内容适配长图文（公众号打开率12%），轻量化内容适配短视频（抖音完播率38%，巨量算数2023数据）。
+                        </p>
+                        <div class="mt-4">
+                            <h4 class="font-medium text-dark mb-2">相关研究领域</h4>
+                            <ul class="text-gray-600 space-y-1">
+                                <li class="flex items-center">
+                                    <i class="fa-solid fa-circle text-xs text-primary mr-2"></i>
+                                    媒介形态学
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fa-solid fa-circle text-xs text-primary mr-2"></i>
+                                    媒介环境学
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fa-solid fa-circle text-xs text-primary mr-2"></i>
+                                    麦克卢汉媒介理论
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- To Whom -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="h-4 bg-primary"></div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-users text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-2">To Whom（受众）</h3>
+                        <p class="text-gray-600 mb-4">
+                            受众（To
+                            Whom）符合卡茨"使用与满足理论"（1974），主动选择媒介满足认知/情感/社交需求。斯坦福大学2020年实验显示：信息与受众认知一致时接受度63%，冲突时仅18%改变观点（选择性接触验证）。<br><br>
+                            代际差异："银发族"（50+岁）91%信任官方媒体（"学习强国"），Z世代（1995-2010）83%偏好UGC内容（B站UP主测评，清华大学2022年调查）。
+                        </p>
+                        <div class="mt-4">
+                            <h4 class="font-medium text-dark mb-2">相关研究领域</h4>
+                            <ul class="text-gray-600 space-y-1">
+                                <li class="flex items-center">
+                                    <i class="fa-solid fa-circle text-xs text-primary mr-2"></i>
+                                    受众理论
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fa-solid fa-circle text-xs text-primary mr-2"></i>
+                                    使用与满足理论
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fa-solid fa-circle text-xs text-primary mr-2"></i>
+                                    受众细分研究
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- With What Effect -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="h-4 bg-primary"></div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-bullseye text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-2">With What Effect（效果）</h3>
+                        <p class="text-gray-600 mb-4">
+                            效果（With What
+                            Effect）符合麦库姆斯"议程设置理论"（1972），媒体不仅告知"是什么"，更告知"什么重要"（如疫情期间"疫苗接种"报道直接提升公众关注度32%）。<br><br>
+                            权威数据：CTR市场研究2023年显示，成功传播活动中认知达标率92%，态度改变率45%，行为转化率18%（符合"金字塔"效果模型）。<br><br>
+                            评估创新：神经科学方法（眼动仪追踪视觉焦点）+社会网络分析（计算传播广度/深度）+长期面板数据（追踪1-3年态度变化）已成主流。
+                        </p>
+                        <div class="mt-4">
+                            <h4 class="font-medium text-dark mb-2">相关研究领域</h4>
+                            <ul class="text-gray-600 space-y-1">
+                                <li class="flex items-center">
+                                    <i class="fa-solid fa-circle text-xs text-primary mr-2"></i>
+                                    传播效果研究
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fa-solid fa-circle text-xs text-primary mr-2"></i>
+                                    议程设置理论
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fa-solid fa-circle text-xs text-primary mr-2"></i>
+                                    沉默的螺旋理论
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5W模式图示 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="h-4 bg-primary"></div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-sitemap text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-2">5W模式图示</h3>
+                        <div class="mb-4">
+                            <svg viewBox="0 0 300 300" class="w-full h-auto">
+                                <!-- 背景圆圈 -->
+                                <circle cx="150" cy="150" r="140" fill="#f3f4f6" />
+
+                                <!-- 传播者 -->
+                                <circle cx="150" cy="50" r="30" fill="#165DFF" />
+                                <text x="150" y="55" text-anchor="middle" fill="white" font-size="12">传播者</text>
+
+                                <!-- 信息 -->
+                                <circle cx="230" cy="150" r="30" fill="#165DFF" />
+                                <text x="230" y="155" text-anchor="middle" fill="white" font-size="12">信息</text>
+
+                                <!-- 媒介 -->
+                                <circle cx="150" cy="250" r="30" fill="#165DFF" />
+                                <text x="150" y="255" text-anchor="middle" fill="white" font-size="12">媒介</text>
+
+                                <!-- 受众 -->
+                                <circle cx="70" cy="150" r="30" fill="#165DFF" />
+                                <text x="70" y="155" text-anchor="middle" fill="white" font-size="12">受众</text>
+
+                                <!-- 效果 -->
+                                <circle cx="150" cy="150" r="20" fill="#FF7D00" />
+                                <text x="150" y="155" text-anchor="middle" fill="white" font-size="10">效果</text>
+
+                                <!-- 箭头 -->
+                                <line x1="150" y1="80" x2="150" y2="120" stroke="#165DFF" stroke-width="2"
+                                    marker-end="url(#arrowhead)" />
+                                <line x1="180" y1="150" x2="200" y2="150" stroke="#165DFF" stroke-width="2"
+                                    marker-end="url(#arrowhead)" />
+                                <line x1="150" y1="220" x2="150" y2="180" stroke="#165DFF" stroke-width="2"
+                                    marker-end="url(#arrowhead)" />
+                                <line x1="120" y1="150" x2="100" y2="150" stroke="#165DFF" stroke-width="2"
+                                    marker-end="url(#arrowhead)" />
+
+                                <defs>
+                                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5"
+                                        orient="auto">
+                                        <polygon points="0 0, 10 3.5, 0 7" fill="#165DFF" />
+                                    </marker>
+                                </defs>
+                            </svg>
+                        </div>
+                        <p class="text-gray-600">
+                            5W模式清晰地展示了传播过程的基本结构，成为传播学研究的基本框架，后续的许多传播理论都是在其基础上发展而来。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5W模式的应用领域 -->
+            <div class="mt-12 bg-white rounded-xl shadow-md p-6 md:p-8">
+                <h3 class="text-2xl font-semibold text-dark mb-6">5W模式的应用领域</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="flex">
+                        <div class="mr-4 text-primary">
+                            <i class="fa-solid fa-newspaper text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-dark mb-2">大众传播学</h4>
+                            <p class="text-gray-600">
+                                分析大众传播过程，研究媒介组织、传播内容、受众特征及传播效果。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="mr-4 text-primary">
+                            <i class="fa-solid fa-bullhorn text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-dark mb-2">广告学</h4>
+                            <p class="text-gray-600">
+                                指导广告策划，包括确定广告主、设计广告信息、选择广告媒介、定位目标受众及评估广告效果。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="mr-4 text-primary">
+                            <i class="fa-solid fa-comments text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-dark mb-2">公共关系</h4>
+                            <p class="text-gray-600">
+                                设计公关传播策略，明确传播主体、传播内容、传播渠道、目标公众及预期效果。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 理论发展部分 -->
+    <section id="development" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark">理论发展</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="bg-light rounded-2xl p-6 md:p-8 shadow-md mb-12">
+                <h3 class="text-2xl font-semibold text-dark mb-6">5W模式的扩展与修正</h3>
+                <div class="timeline">
+                    <!-- 拉斯韦尔的5W模式 -->
+                    <div class="timeline-item">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/4 mb-4 md:mb-0">
+                                <span
+                                    class="inline-block px-3 py-1 bg-primary text-white text-sm font-medium rounded-full">1948年</span>
+                            </div>
+                            <div class="md:w-3/4">
+                                <h4 class="text-xl font-semibold text-dark mb-2">拉斯韦尔的5W模式</h4>
+                                <p class="text-gray-600 mb-2">
+                                    哈罗德·拉斯韦尔在《传播在社会中的结构与功能》中提出5W模式，首次将传播过程分解为五个基本要素。
+                                </p>
+                                <p class="text-gray-600">
+                                    这一模式为传播学研究提供了基本框架，也奠定了传播学研究的五大领域：控制研究、内容分析、媒介研究、受众研究和效果研究。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 香农-韦弗数学模式 -->
+                    <div class="timeline-item">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/4 mb-4 md:mb-0">
+                                <span
+                                    class="inline-block px-3 py-1 bg-primary text-white text-sm font-medium rounded-full">1949年</span>
+                            </div>
+                            <div class="md:w-3/4">
+                                <h4 class="text-xl font-semibold text-dark mb-2">香农-韦弗数学模式</h4>
+                                <p class="text-gray-600 mb-2">
+                                    克劳德·香农和沃伦·韦弗在《传播的数学理论》中提出了一个基于信息论的传播模式。
+                                </p>
+                                <p class="text-gray-600">
+                                    该模式引入了"噪音"的概念，强调了传播过程中的干扰因素，对5W模式进行了重要补充。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 施拉姆循环模式 -->
+                    <div class="timeline-item">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/4 mb-4 md:mb-0">
+                                <span
+                                    class="inline-block px-3 py-1 bg-primary text-white text-sm font-medium rounded-full">1954年</span>
+                            </div>
+                            <div class="md:w-3/4">
+                                <h4 class="text-xl font-semibold text-dark mb-2">施拉姆循环模式</h4>
+                                <p class="text-gray-600 mb-2">
+                                    威尔伯·施拉姆在《传播是怎样运行的》中提出循环模式，强调了传播过程的互动性。
+                                </p>
+                                <p class="text-gray-600">
+                                    该模式认为传播双方都是传播主体，在传播过程中不断相互作用，角色不断互换，并且都需具备共同的意义空间。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 德弗勒互动过程模式 -->
+                    <div class="timeline-item">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/4 mb-4 md:mb-0">
+                                <span
+                                    class="inline-block px-3 py-1 bg-primary text-white text-sm font-medium rounded-full">1966年</span>
+                            </div>
+                            <div class="md:w-3/4">
+                                <h4 class="text-xl font-semibold text-dark mb-2">德弗勒互动过程模式</h4>
+                                <p class="text-gray-600 mb-2">
+                                    梅尔文·德弗勒在香农-韦弗模式基础上发展出互动过程模式，进一步强调了传播的双向性和反馈机制。
+                                </p>
+                                <p class="text-gray-600">
+                                    该模式引入了"反馈"的概念，认为传播过程是一个循环往复、相互作用的过程，受众的反馈对传播效果具有重要影响。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 纽科姆对称模式 -->
+                    <div class="timeline-item">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/4 mb-4 md:mb-0">
+                                <span
+                                    class="inline-block px-3 py-1 bg-primary text-white text-sm font-medium rounded-full">1953年</span>
+                            </div>
+                            <div class="md:w-3/4">
+                                <h4 class="text-xl font-semibold text-dark mb-2">纽科姆对称模式</h4>
+                                <p class="text-gray-600 mb-2">
+                                    西奥多·纽科姆提出对称模式，关注人际传播中的认知平衡问题。
+                                </p>
+                                <p class="text-gray-600">
+                                    该模式认为，当两个人对某一客体的态度不一致时，就会产生紧张关系，并试图通过沟通和调整态度来恢复平衡。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 韦斯特利-麦克莱恩模式 -->
+                    <div class="timeline-item">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/4 mb-4 md:mb-0">
+                                <span
+                                    class="inline-block px-3 py-1 bg-primary text-white text-sm font-medium rounded-full">1957年</span>
+                            </div>
+                            <div class="md:w-3/4">
+                                <h4 class="text-xl font-semibold text-dark mb-2">韦斯特利-麦克莱恩模式</h4>
+                                <p class="text-gray-600 mb-2">
+                                    布鲁斯·韦斯特利和马尔科姆·麦克莱恩提出的大众传播模式，结合了人际传播和大众传播的特点。
+                                </p>
+                                <p class="text-gray-600">
+                                    该模式强调了信息选择和把关人的作用，以及受众的主动选择性，对理解大众传播过程具有重要意义。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 传播模式对比 -->
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                <h3 class="text-2xl font-semibold text-dark mb-6">传播模式对比</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    模式名称</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    提出者</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    特点</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    应用领域</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="font-medium text-dark">5W模式</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-gray-600">哈罗德·拉斯韦尔</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-gray-600">线性模式，明确传播基本要素</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-gray-600">传播学基础研究</div>
+                                </td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="font-medium text-dark">香农-韦弗模式</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-gray-600">克劳德·香农、沃伦·韦弗</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-gray-600">引入噪音概念，强调技术层面</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-gray-600">通信工程、信息论</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="font-medium text-dark">施拉姆循环模式</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-gray-600">威尔伯·施拉姆</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-gray-600">强调互动性，适用于人际传播</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-gray-600">人际传播研究</div>
+                                </td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="font-medium text-dark">德弗勒互动模式</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-gray-600">梅尔文·德弗勒</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-gray-600">强调反馈机制，双向循环</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-gray-600">大众传播、新媒体研究</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="font-medium text-dark">纽科姆对称模式</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-gray-600">西奥多·纽科姆</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-gray-600">关注认知平衡与态度改变</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-gray-600">社会心理学、人际传播</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 评价与影响部分 -->
+    <section id="evaluation" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark">评价与影响</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 优点 -->
+                <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mr-4">
+                            <i class="fa-solid fa-thumbs-up text-green-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-dark">主要贡献</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex">
+                            <div class="mr-3 text-green-500 mt-1">
+                                <i class="fa-solid fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-dark mb-1">奠定传播学研究框架</h4>
+                                <p class="text-gray-600">
+                                    5W模式首次将传播过程分解为五个基本要素，为传播学研究提供了系统化的分析框架，确定了传播学的五大研究领域。
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="mr-3 text-green-500 mt-1">
+                                <i class="fa-solid fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-dark mb-1">简明实用</h4>
+                                <p class="text-gray-600">
+                                    模式简洁明了，易于理解和应用，成为传播学入门的基础理论，广泛应用于教学和研究中。
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="mr-3 text-green-500 mt-1">
+                                <i class="fa-solid fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-dark mb-1">多学科影响</h4>
+                                <p class="text-gray-600">
+                                    不仅影响了传播学，还对政治学、社会学、心理学等学科产生了重要影响，成为跨学科研究的重要工具。
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="mr-3 text-green-500 mt-1">
+                                <i class="fa-solid fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-dark mb-1">指导传播实践</h4>
+                                <p class="text-gray-600">
+                                    为广告、公关、市场营销等传播实践活动提供了理论指导，帮助从业者分析和优化传播过程。
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 局限性 -->
+                <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mr-4">
+                            <i class="fa-solid fa-thumbs-down text-red-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-dark">局限性</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex">
+                            <div class="mr-3 text-red-500 mt-1">
+                                <i class="fa-solid fa-times-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-dark mb-1">过于简化传播过程</h4>
+                                <p class="text-gray-600">
+                                    作为线性模式，忽略了传播过程中的反馈和互动，未能全面反映复杂的传播现象。
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="mr-3 text-red-500 mt-1">
+                                <i class="fa-solid fa-times-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-dark mb-1">忽视社会环境影响</h4>
+                                <p class="text-gray-600">
+                                    未考虑社会文化环境对传播过程的影响，也未关注传播过程中的噪音干扰。
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="mr-3 text-red-500 mt-1">
+                                <i class="fa-solid fa-times-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-dark mb-1">效果分析过于简单</h4>
+                                <p class="text-gray-600">
+                                    对传播效果的分析较为笼统，未能深入探讨传播效果产生的机制和条件。
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="mr-3 text-red-500 mt-1">
+                                <i class="fa-solid fa-times-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-dark mb-1">不适用于新媒体环境</h4>
+                                <p class="text-gray-600">
+                                    模式诞生于传统媒体时代，难以全面解释新媒体环境下的传播现象，如用户生成内容、互动传播等。
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 现代启示 -->
+            <div class="mt-12 bg-white rounded-xl shadow-md p-6 md:p-8">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                        <i class="fa-solid fa-lightbulb text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-dark">对现代传播的启示</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-light p-6 rounded-lg">
+                        <h4 class="font-semibold text-dark mb-3 flex items-center">
+                            <i class="fa-solid fa-users text-primary mr-2"></i>
+                            受众中心导向
+                        </h4>
+                        <p class="text-gray-600">
+                            在新媒体环境下，受众的主动性和互动性增强，传播者需要更加关注受众需求，提供个性化内容。
+                        </p>
+                    </div>
+                    <div class="bg-light p-6 rounded-lg">
+                        <h4 class="font-semibold text-dark mb-3 flex items-center">
+                            <i class="fa-solid fa-random text-primary mr-2"></i>
+                            多渠道整合
+                        </h4>
+                        <p class="text-gray-600">
+                            现代传播需要整合多种媒介渠道，发挥不同媒介的优势，实现传播效果最大化。
+                        </p>
+                    </div>
+                    <div class="bg-light p-6 rounded-lg">
+                        <h4 class="font-semibold text-dark mb-3 flex items-center">
+                            <i class="fa-solid fa-chart-line text-primary mr-2"></i>
+                            数据驱动传播
+                        </h4>
+                        <p class="text-gray-600">
+                            利用大数据分析受众行为和反馈，优化传播内容和策略，提高传播效果评估的科学性。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">传播学5W模式</h3>
+                    <p class="text-gray-400 mb-4">
+                        拉斯韦尔5W模式是传播学史上第一个传播过程模式，首次将传播活动解释为由五个环节构成的过程。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">相关资源</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">传播学经典著作</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">传播理论发展历程</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">新媒体传播研究</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">传播效果评估方法</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">联系我们</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-envelope text-primary mr-2"></i>
+                            <a href="mailto:info@communicationtheory.com"
+                                class="text-gray-400 hover:text-white transition-colors">info@communicationtheory.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-phone text-primary mr-2"></i>
+                            <span class="text-gray-400">+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-map-marker-alt text-primary mr-2"></i>
+                            <span class="text-gray-400">123 Communication Ave, Theory City</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-500">
+                <p>&copy; 2025 传播学5W模式研究中心. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('shadow-sm');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('shadow-sm');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // 关闭移动端菜单
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
