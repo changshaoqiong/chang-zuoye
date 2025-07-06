@@ -33,7 +33,7 @@ const Footer = () => {
                 // 解析总时长（单位：秒，转换为小时）
                 const totalSeconds = result.data.total_seconds;
                 const totalHours = (totalSeconds / 3600).toFixed(2); // 保留2位小数
-                setWakatimeText(`${totalHours} 小时`);
+                setWakatimeText(`：${totalHours} 小时`);
             } catch (err) {
                 console.error("WakaTime数据获取失败", err);
                 setErrorWaka(err.message);
