@@ -12,10 +12,22 @@
   },
   {
     "id": 2,
+    "title": "CSS基础练习",
+    "description": "CSS 是一门用来描述 HTML、XML 文档在屏幕、纸张或者朗读设备等等上如何表现的语言",
+    "imageUrl": "data:image/webp;base64,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",
+    "link": "/wangye1/第三周/03-CSS-01.html",
+    "tags": [
+      "CSS",
+      "语法基础",
+      "选择符"
+    ]
+  },
+  {
+    "id": 3,
     "title": "CSS 盒模型与布局",
     "description": "深入理解CSS盒模型，并使用Flexbox和Grid进行响应式页面布局。",
     "imageUrl": "https://tse3-mm.cn.bing.net/th/id/OIP-C.t-hc8SFuiyXZagTSXCqZaQHaDj?w=317&h=168&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
-    "link": "/exercises/css-layout",
+    "link": "/wangye1/第四周/CSS.HTML",
     "tags": [
       "CSS",
       "Flexbox",
@@ -24,11 +36,11 @@
     ]
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "JavaScript DOM 操作",
     "description": "通过JavaScript动态操作DOM元素，实现交互式网页功能。",
     "imageUrl": "https://tse1-mm.cn.bing.net/th/id/OIP-C.9YHDptJeLe99JLdorFgNEQHaEh?w=295&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
-    "link": "/exercises/js-dom",
+    "link": "/wangye1/第五周/JavaScript.html",
     "tags": [
       "JavaScript",
       "DOM",
@@ -36,21 +48,35 @@
     ]
   },
   {
-    "id": 4,
-    "title": "React 组件化开发",
+    "id": 5,
+    "title": "添加JavaScript语法示例页面",
     "description": "学习使用React构建可复用的UI组件，理解状态和属性。",
-    "imageUrl": "https://tse3-mm.cn.bing.net/th/id/OIP-C.AolZ4pkUMxjoo7ybGpbX7wAAAA?w=200&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3",
+    "imageUrl": "https://tse2-mm.cn.bing.net/th/id/OIP-C.rywMiMczYZVMV3MwgtEPmwHaDq?w=349&h=173&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+    "link": "/wangye1/06-news0/JavaScript.html",
     "tags": [
-      "React",
-      "组件",
-      "SPA"
+      "RJavaScript",
+      "脚本动态",
+      "语法"
     ]
   },
   {
-    "id": 5,
+    "id": 6,
+    "title": "JavaScript异步编程练习",
+    "description": "异步（Asynchronous）允许程序在等待一个耗时操作完成的同时，继续执行后续的代码，而当该耗时操作最终完成时，再通过某种机制（如回调函数）来处理其结果。",
+    "imageUrl": "https://tse4-mm.cn.bing.net/th/id/OIP-C.sPkf--FAO9WqDnoO52zuFgHaC9?w=332&h=139&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+    "link": "/wangye1/07-async.html",
+    "tags": [
+      "回调函数",
+      "异步",
+      "JavaScript"
+    ]
+  },
+  {
+    "id": 7,
     "title": "Next.js 核心概念",
     "description": "学习Next.js框架的核心概念：组件、jsx、props",
-    "imageUrl": "data:image/webp;base64,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",
+    "imageUrl": "https://tse1-mm.cn.bing.net/th/id/OIP-C.UtPsgt0LtFYdE7Ta97QvdwHaCc?w=284&h=115&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+    "link": "http://192.168.56.249:3000",
     "tags": [
       "React",
       "组件",

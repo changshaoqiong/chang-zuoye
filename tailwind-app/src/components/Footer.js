@@ -23,7 +23,7 @@ const Footer = () => {
             setErrorWaka(null);
             try {
                 // 替换为项目总时长 API 端点
-                const apiUrl = `https://wakatime-api-proxy.xiangkoujiusi.workers.dev/`;
+                const apiUrl = `https://csc-wakatime.wemedia.press/`;
                 const response = await fetch(apiUrl);
                 if (!response.ok) {
                     const errorData = await response.json().catch(() => ({ message: "解析错误响应失败" }));
@@ -33,7 +33,7 @@ const Footer = () => {
                 // 解析总时长（单位：秒，转换为小时）
                 const totalSeconds = result.data.total_seconds;
                 const totalHours = (totalSeconds / 3600).toFixed(2); // 保留2位小数
-                setWakatimeText(`累计编码时长：${totalHours} 小时`);
+                setWakatimeText(`${totalHours} 小时`);
             } catch (err) {
                 console.error("WakaTime数据获取失败", err);
                 setErrorWaka(err.message);
@@ -93,11 +93,8 @@ const Footer = () => {
                 {/* WakaTime统计 */}
                 <p className="text-xs mt-2">Wakatime : {isLoadingWaka ? "加载中..." : errorWaka ? `错误：${errorWaka}` : wakatimeText}</p>
 
-                <img
-                    src="https://wakatime.com/share/badges/projects?q=chang-zuoye"
-                    alt="WakaTime "
-                    className="mx-auto mt-2 max-w-[300px]"
-                />
+
+
 
                 {/* 问答功能 */}
                 <div className="bg-gray-100 p-4 mt-4 rounded">
