@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奔跑吧 | 活力之旅</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(45deg, #2196F3, #4CAF50);
+            background-size: 200% 200%;
+            animation: gradientShift 10s ease infinite;
+            overflow: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s 0.3s ease-out both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: #2196F3;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s 0.6s ease-out both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: float 8s infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="particles">
+        <!-- 动态粒子效果 -->
+        <div class="particle" style="width: 10px; height: 10px; left: 10%; animation-delay: 1s;"></div>
+        <div class="particle" style="width: 8px; height: 8px; left: 30%; animation-delay: 2.5s;"></div>
+        <div class="particle" style="width: 12px; height: 12px; left: 60%; animation-delay: 0.5s;"></div>
+        <div class="particle" style="width: 6px; height: 6px; left: 80%; animation-delay: 3s;"></div>
+    </div>
+
+    <div class="container">
+        <h1 class="scroll-fade">奔跑吧！活力无限</h1>
+        <p class="scroll-fade">探索运动的乐趣，感受风的速度，每一步都是对自我的超越。加入我们，开启属于你的活力之旅！</p>
+        <a href="#" class="cta-button" id="ctaBtn">立即开启</a>
+    </div>
+
+    <script>
+        // 鼠标跟随粒子效果
+        document.addEventListener('mousemove', (e) => {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = `${e.clientX}px`;
+            particle.style.top = `${e.clientY}px`;
+            particle.style.width = `${Math.random() * 8 + 2}px`;
+            particle.style.height = particle.style.width;
+            particle.style.animationDelay = `${Math.random() * 2}s`;
+            document.querySelector('.particles').appendChild(particle);
+
+            // 自动清理粒子
+            setTimeout(() => particle.remove(), 3000);
+        });
+
+        // 按钮点击涟漪效果
+        const ctaBtn = document.getElementById('ctaBtn');
+        ctaBtn.addEventListener('click', (e) => {
+            const rect = ctaBtn.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const ripple = document.createElement('div');
+            ripple.className = 'ripple';
+            ripple.style.width = `${ctaBtn.offsetWidth}px`;
+            ripple.style.height = `${ctaBtn.offsetHeight}px`;
+            ripple.style.left = `${x - ctaBtn.offsetWidth / 2}px`;
+            ripple.style.top = `${y - ctaBtn.offsetHeight / 2}px`;
+            ctaBtn.appendChild(ripple);
+
+            setTimeout(() => ripple.remove(), 600);
+        });
+
+        // 滚动动画触发
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.scroll-fade').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
+<style>
+    /* 新增点击涟漪样式 */
+    .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(0);
+        animation: ripple 0.6s linear;
+    }
+
+    @keyframes ripple {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+
+    /* 滚动动画类 */
+    .scroll-fade {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .scroll-fade.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
