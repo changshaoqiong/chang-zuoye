@@ -46,7 +46,8 @@
 ### QAnything运行截图
 
 ![QAnything展示截图](./images/QAnything%201.jpg)
-![WakaTime API展示截图](./images/QAnything%202.jpg)
+![QAnything展示截图](./images/QAnything%202.jpg)
+
 图注：QAnything嵌入页面底部，可随时点击展开AI问答面板进行技术咨询。
 
 ## WakaTime API集成方法
@@ -77,8 +78,7 @@
 
 ### WakaTime API集成与展示截图
 
-![WakaTime API集成与展示截图](./images/QAnything%201.jpg)
-![WakaTime API集成与展示截图](./images/QAnything%202.jpg)
+![WakaTime API集成与展示截图](./images/wakatime.jpg)
 图注：项目首页底部显示总编码时长为31.92小时，实时统计用户的前端学习时长。
 
 ## Next.js项目结构
